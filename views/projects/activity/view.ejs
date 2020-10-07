@@ -1,0 +1,46 @@
+<% include ../../partials/header %>
+
+<% include ../../partials/sidebar %>
+<div class="container">
+    <h1 class="card-title">Activity</h1>
+    <div class="name"">
+        <h3 style="text-align: right;">
+            <small class="text-black" style="padding: 30px;">#<%=projectid%> <%= project.name%></small>
+        </h3>
+    </div>
+    <hr>
+    <% activity.forEach(item => {%>
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="card">
+                <div class="card-header text-center" style="padding: 5px;">
+                    <h2 style="font-family: viga;"><%=item.dateactivity%></h2>
+                </div>
+                <div class="card-body">
+                    <h5><%=item.title%></h5>
+                    <hr>
+                    <p><%=item.description%></p>
+                    <p>Done (%): from <strong><%=item.olddone%>%</strong> updated to <strong><%=item.nowdone%>%</strong>
+                    </p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar"style="width:<%= parseInt(item.olddone)%>%" aria-valuenow="<%=item.olddone%>"
+                            aria-valuemin="0" aria-valuemax="100">
+                        </div>
+
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar"style="width:<%= parseInt(item.nowdone)%>%" aria-valuenow="<%=item.nowdone%>"
+                            aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                        <br>
+                    </div>
+                    <div class="author" style="text-align: center; margin-top: 20px;">
+                    <h5><strong>Author : <%=item.authorname%></strong></h5>
+                        <h4><span class="badge badge-info"><%= item.timeactivity%></span></h4>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <%})%>
+</div>
+
+<% include ../../partials/footer %>

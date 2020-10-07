@@ -1,0 +1,101 @@
+<% include ../../partials/header %>
+
+<% include ../../partials/sidebar %>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <h1 style="text-align: center;">Overview</h1>
+    <h4 style="text-align: center;">
+
+        <small class="text-muted">#<%= data.projectid %> <%= data.name %></small>
+    </h4>
+    <hr>
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="card issue-tracker">
+                <div class="card-header ">
+                    <h5>Issue Tracking</h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item ">
+                                <div class="row">
+                                    <h6 class="col" style="text-align: left;">Bug</h6>
+                                    <div style="text-align: right;">
+                                        <h5><span style="text-align: right;">
+                                                <%=bugOpen%> Open/<%=bugTotal%>
+                                            </span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <h6 class="col" style="text-align: left;">Feature</h6>
+                                    <div style="text-align: right;">
+                                        <h5><span style="text-align: right;">
+                                                <%=featureOpen%> Open/<%=featureTotal%>
+                                            </span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <h6 class="col" style="text-align: left;">Support</h6>
+                                    <div style="text-align: right;">
+                                        <h5><span style="text-align: right;">
+                                                <%=supportOpen%> Open/<%=supportTotal%>
+                                            </span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="card issue-tracker">
+                <div class="card-header">
+                    <h5>Members</h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <%mambers.forEach((item)=>{%>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <h6 class="col" style="text-align: left;"><%=item.firstname%>
+                                        <%=item.lastname%></h6>
+                                    <div style="text-align: right;">
+                                        <span class="badge badge-secondary"
+                                            style="text-align: right;"><%=item.role ? item.role.toUpperCase() : 'NOT ASSIGNED'%></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <%})%>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+</div>
+
+<% include ../../partials/footer %>

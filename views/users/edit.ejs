@@ -1,0 +1,94 @@
+<% include ../partials/header %>
+<h1 class="h2 mt-2">Edit Users</h1>
+<form class="container" method="POST">
+    <div class="form-group row">
+        <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name"
+                value="<%=result.firstname%>">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name"
+                value="<%=result.lastname%>">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                value="<%=result.email%>" disabled>
+        </div>
+    </div>
+    <div class="form-group row was-validated">
+        <label for="password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" values="">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="position" class="col-sm-2 col-form-label">Position</label>
+        <div class="col-sm-10">
+            <select name="position" id="position" class="form-control">
+                <option selected disabled> Choose default position ...</option>
+                <option class="form-control" name="position" value="Manager"
+                    <%= result.position == 'Manager' ? 'selected' : '' %>>Manager</option>
+                <option class="form-control" name="position" value="Software Developer"
+                    <%= result.position == 'Software Developer' ? 'selected' : '' %>>Software Developer</option>
+                <option class="form-control" name="position" value="Quality Assurance"
+                    <%= result.position == 'Quality Assurance' ? 'selected' : '' %>>Quality Assurance</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">Type</div>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="type" id="fulltime" value="Full Time"
+                    <%= result.typejob == 'Full Time' ? 'checked' : '' %>>
+                <label class="form-check-label" for="fulltime">
+                    Fulltime
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="type" id="parttime" value="Part Time"
+                    <%= result.typejob == 'Part Time' ? 'checked' : '' %>>
+                <label class="form-check-label" for="parttime">
+                    Parttime
+                </label>
+            </div>
+        </div>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="admin" value="Admin"
+                        <%= result.status == 'Admin' ? 'checked' : '' %>>
+                    <label class="form-check-label" for="admin">
+                        Admin
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="user" value="User"
+                        <%= result.status == 'User' ? 'checked' : '' %>>
+                    <label class="form-check-label" for="user">
+                        User
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="/users ">
+                <button class="btn btn-outline-info">Back</button>
+            </a>
+        </div>
+    </div>
+</form>
+<% include ../partials/footer %>

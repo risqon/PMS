@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+<div class="container">
+    <h1 class="h2 mt-2">Add Project</h1>
+    <form  action="" method="POST">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="projectName" name="projectName" placeholder="Project Name" value="">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2">Members</div>
+            <div class="col-sm-10">
+                
+                <% data.forEach((item,index) => {%>
+                <div class="form-check">
+
+                    <input 
+                    class="form-check-input" 
+                    type="checkbox" name="members" id="members<%=item + 1%>" value="<%=item.userid%>">
+
+                    <label  class="form-check-label" for="members<%=item + 1%>"><%=item.fullname%></label>
+                </div>
+                <%})%>
+                
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button a href type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<% include ../partials/footer %>
